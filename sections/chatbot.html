@@ -1,0 +1,31 @@
+<!-- Chatbot Section: Botón flotante y ventana de chat IA -->
+<div class="chatbot-container" aria-live="polite">
+  <!-- Botón flotante para abrir/cerrar el chat -->
+  <button class="chatbot-fab" aria-label="Abrir chat IA">
+    <!-- Icono SVG de chat -->
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M4 20V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H7l-3 4z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+  <!-- Ventana de chat (oculta por defecto, visible al abrir) -->
+  <div class="chatbot-window" role="dialog" aria-modal="true" tabindex="-1" hidden>
+    <div class="chatbot-header">
+      <span class="chatbot-title">Asistente IA</span>
+      <button class="chatbot-close" aria-label="Cerrar chat">&times;</button>
+    </div>
+    <div class="chatbot-messages">
+      <!-- Los mensajes del chat se insertan aquí dinámicamente -->
+    </div>
+    <form class="chatbot-form" autocomplete="off">
+      <input type="text" class="chatbot-input" placeholder="Escribe tu mensaje..." aria-label="Mensaje" required />
+      <button type="submit" class="chatbot-send" aria-label="Enviar">&rarr;</button>
+    </form>
+  </div>
+</div>
+<!--
+  Notas para personalización:
+  - Cambia el icono SVG si lo deseas
+  - Personaliza los textos y estilos usando variables CSS
+  - Asegura la responsividad y accesibilidad (tabindex, aria, etc.)
+  - Integra la lógica con chatbot.js para apertura/cierre y mensajes
+--> 

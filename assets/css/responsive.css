@@ -1,0 +1,579 @@
+/* responsive.css: Media queries y ajustes mobile-first */
+
+/* Variables CSS para espaciado móvil */
+:root {
+  --spacing-mobile-sm: 8px;
+  --spacing-mobile-md: 16px;
+  --spacing-mobile-lg: 24px;
+}
+
+/* Optimización de Touch Targets */
+@media (max-width: 600px) {
+  button, a, input[type="submit"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Para elementos más pequeños, aumentar el área de toque */
+  .small-button {
+    padding: 8px 12px;
+    margin: 4px;
+  }
+}
+
+/* Optimizar animaciones para móviles */
+@media (max-width: 600px) {
+  * {
+    animation-duration: 0.2s !important;
+    transition-duration: 0.2s !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-section .about-container,
+  .services-overview-section .services-features,
+  .testimonials-list,
+  .footer-section .footer-content {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--spacing-md);
+  }
+  .hero-header {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    align-items: flex-start;
+  }
+  .hero-image {
+    justify-content: center;
+    margin-top: var(--spacing-md);
+  }
+}
+
+@media (max-width: 600px) {
+  html {
+    font-size: 15px;
+  }
+  .hero-section {
+    min-height: 40vh;
+    padding: var(--spacing-md) 0;
+  }
+  .hero-content {
+    padding: 0 var(--spacing-sm);
+  }
+  .section-title {
+    font-size: var(--font-size-h3);
+  }
+  
+  .hero-cta {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+  .footer-section .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer-nav {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+  .about-image img,
+  .hero-image img {
+    max-width: 100%;
+    border-radius: 12px;
+  }
+  /* Oculta el div de imagen en móvil */
+  .about-card-img {
+    display: none !important;
+  }
+  /* Imagen como fondo de la tarjeta */
+  .about-card {
+    position: relative;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    border-radius: 22px;
+  }
+  /* Capa blanca semitransparente sobre el fondo, sin border-radius para evitar fugas de color */
+  .about-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.70);
+    z-index: 1;
+    pointer-events: none;
+    /* Sin border-radius */
+  }
+  /* El contenido de la tarjeta debe estar por encima de la capa blanca */
+  .about-card > * {
+    position: relative;
+    z-index: 2;
+  }
+  .carousel-container {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 0;
+    padding-left: 0;
+    scroll-snap-type: x mandatory;
+  }
+  .carousel-card {
+    min-width: 90vw;
+    max-width: 90vw;
+    width: 90vw;
+    margin: 0 auto;
+    scroll-snap-align: center;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s, transform 0.3s, opacity 0.3s;
+    box-shadow: none !important;
+  }
+}
+
+/* Mejoras específicas para móviles pequeños */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px; /* Reducir tamaño base */
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    line-height: 1.2;
+  }
+  
+  /* Header optimizado */
+  .header-logo img {
+    height: 32px; /* Reducir tamaño del logo */
+  }
+  
+  .header-cta {
+    padding: 8px 12px; /* Reducir padding del botón */
+    font-size: 0.9rem;
+  }
+  
+  .header-nav {
+    transition: all 0.3s ease; /* Añadir transiciones */
+  }
+  
+  /* Hero section optimizado */
+  .hero-section {
+    min-height: 90vh; /* Altura del 90% de la pantalla */
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+  
+  .hero-text h1 {
+    font-size: 2.5rem; /* Reducir más el tamaño */
+    line-height: 1.1;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+  
+  .hero-text {
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .hero-cta {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+}
+
+/* Estilos responsivos específicos para la sección de Que ofrezco */
+@media (max-width: 768px) {
+  .services-overview-section {
+    padding: calc(var(--padding-section) / 2) 0;
+  }
+  
+  .services-features {
+    gap: var(--spacing-md) !important;
+  }
+  
+  .service-feature {
+    flex: 1 1 100% !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+  }
+  
+  .service-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .service-icon img {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .service-title {
+    font-size: var(--font-size-h4);
+  }
+}
+
+@media (max-width: 480px) {
+  .services-overview-section {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+  
+  .service-feature {
+    padding: var(--spacing-md) var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .service-icon {
+    width: 50px;
+    height: 50px;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .service-icon img {
+    width: 25px;
+    height: 25px;
+  }
+  
+  .service-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .service-desc {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+  
+  .services-features {
+    gap: var(--spacing-md);
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+/* Estilos responsivos específicos para la sección Acerca de */
+@media (max-width: 900px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-lg);
+  }
+  
+  .about-image {
+    order: -1;
+    max-width: 100%;
+    min-width: auto;
+  }
+  
+  .about-text {
+    min-width: auto;
+  }
+  
+  .about-features {
+    align-items: center;
+  }
+  
+  .about-feature {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+  
+  .about-content {
+    padding: 0;
+  }
+  
+  .about-text .section-title {
+    font-size: var(--font-size-h3);
+  }
+  
+  .about-description {
+    font-size: var(--font-size-body);
+  }
+  
+  .about-feature {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--spacing-sm);
+  }
+  
+  .feature-icon {
+    width: 20px;
+    height: 20px;
+    font-size: 12px;
+  }
+  
+  .feature-text {
+    font-size: var(--font-size-small);
+  }
+  
+  /* Mejoras para las cards horizontales */
+  .about-cards {
+    gap: var(--spacing-lg);
+    padding: 0 var(--spacing-sm);
+  }
+  
+  .horizontal-card {
+    padding: var(--spacing-md);
+  }
+  
+  .about-card-img {
+    max-height: 200px; /* Limitar altura de imágenes */
+  }
+  
+  .about-card-title {
+    font-size: 1.2rem;
+  }
+  
+  .about-card-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+}
+
+/* Mejoras para el carousel de Que ofrezco */
+@media (max-width: 600px) {
+  .carousel-card {
+    min-width: 280px; /* Ancho mínimo más apropiado */
+    margin-right: var(--spacing-md);
+  }
+  
+  .carousel-chevron {
+    width: 40px; /* Botones más grandes */
+    height: 40px;
+  }
+  
+  .carousel-title {
+    font-size: 1.1rem;
+  }
+  
+  .carousel-desc {
+    font-size: 0.9rem;
+  }
+}
+
+/* Añadir indicadores de scroll para el carousel */
+/* Eliminado el degradado que causaba problemas visuales */
+
+/* Mejoras para testimonios */
+@media (max-width: 600px) {
+  .testimonial-glass {
+    padding: var(--spacing-lg) var(--spacing-md);
+    margin: 0 var(--spacing-sm);
+  }
+  
+  .testimonial-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  
+  .testimonial-name {
+    font-size: 0.9rem;
+  }
+  
+  .testimonial-avatar {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* Mejoras para formulario de contacto */
+@media (max-width: 600px) {
+  .form-input,
+  .form-textarea {
+    padding: 12px 16px; /* Padding más generoso */
+    font-size: 16px; /* Evitar zoom en iOS */
+  }
+  
+  .form-submit {
+    padding: 14px 24px; /* Botón más grande */
+    font-size: 1rem;
+    min-height: 44px; /* Tamaño mínimo para tocar */
+  }
+  
+  .form-error,
+  .form-success {
+    font-size: 0.9rem;
+    padding: var(--spacing-sm);
+  }
+  
+  .contact-form {
+    padding: 0 var(--spacing-sm);
+  }
+}
+
+/* Mejoras para footer */
+@media (max-width: 600px) {
+  .footer-link {
+    padding: var(--spacing-sm) 0;
+    font-size: 0.95rem;
+  }
+  
+  .footer-social-link {
+    width: 44px; /* Tamaño mínimo para tocar */
+    height: 44px;
+  }
+  
+  .redesign-footer-content {
+    gap: var(--spacing-lg);
+    padding: var(--spacing-lg) var(--spacing-sm);
+  }
+}
+
+/* Optimización de espaciado general para móviles */
+@media (max-width: 600px) {
+  section {
+    padding: var(--spacing-mobile-lg) 0;
+  }
+  
+  .container {
+    padding: 0 var(--spacing-mobile-md);
+  }
+}
+
+/* Personaliza más breakpoints y ajustes aquí */
+
+/* ===== ESTILOS DEL MENÚ MÓVIL ===== */
+
+/* Menú móvil base */
+.mobile-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255,255,255,0.60);
+  backdrop-filter: blur(18px) saturate(180%);
+  border: 1.5px solid rgba(255,255,255,0.45);
+  box-shadow: 0 8px 32px 0 rgba(2,62,138,0.10);
+  z-index: 9998;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mobile-nav.open {
+  transform: translateX(0);
+}
+
+.mobile-nav-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  /* position: relative; */
+}
+
+.mobile-nav-link {
+  color: #023E8A;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 500;
+  padding: 1.2rem 2rem;
+  border-radius: 0;
+  transition: color 0.3s;
+  text-align: center;
+  width: 100%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0.5rem;
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link:focus {
+  color: #0077b6;
+  background: transparent;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Botón de cerrar (tache) en el menú móvil */
+.mobile-nav-close {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.mobile-nav-close .iconify {
+  color: #023E8A !important;
+  font-size: 2rem;
+}
+.mobile-nav-close:hover,
+.mobile-nav-close:focus {
+  background: rgba(2,62,138,0.08);
+  outline: none;
+  transform: scale(1.08);
+}
+
+.mobile-nav-cta {
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 300px;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+/* Animación de entrada para los enlaces */
+.mobile-nav.open .mobile-nav-link {
+  animation: slideInFromLeft 0.4s ease forwards;
+  opacity: 0;
+}
+
+.mobile-nav.open .mobile-nav-link:nth-child(2) { animation-delay: 0.1s; } /* Inicio */
+.mobile-nav.open .mobile-nav-link:nth-child(3) { animation-delay: 0.2s; } /* Acerca de */
+.mobile-nav.open .mobile-nav-link:nth-child(4) { animation-delay: 0.3s; } /* Que ofrezco */
+.mobile-nav.open .mobile-nav-link:nth-child(5) { animation-delay: 0.4s; } /* Testimonios */
+.mobile-nav.open .mobile-nav-cta { animation: slideInFromLeft 0.4s ease forwards; animation-delay: 0.5s; opacity: 0; }
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Ocultar menú de escritorio en móviles */
+@media (max-width: 768px) {
+  .header-nav {
+    display: none;
+  }
+  
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* Mostrar menú de escritorio en pantallas grandes */
+@media (min-width: 769px) {
+  .menu-toggle {
+    display: none;
+  }
+  
+  .mobile-nav {
+    display: none;
+  }
+} 

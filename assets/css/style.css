@@ -1,0 +1,87 @@
+/* style.css: Variables globales y estilos base */
+:root {
+  /* Colores principales */
+  --color-primary-light: #90E0EF;
+  --color-secondary-dark: #023E8A;
+  --color-tertiary-medium: #0056B3;
+  --color-subtle-accent: #9CD3DD;
+  --color-white: #FFFFFF;
+  --color-text-body: #333333;
+  --color-text-light: #FFFFFF;
+
+  /* Tipografía */
+  --font-family-heading: 'Inter', sans-serif;
+  --font-family-body: 'Noto Sans', sans-serif;
+  --font-size-base: 16px;
+  --font-size-h1: 3.5rem;
+  --font-size-h2: 2.5rem;
+  --font-size-h3: 1.75rem;
+  --font-size-h4: 1.25rem;
+  --font-size-body: 1rem;
+  --font-size-small: 0.875rem;
+  --line-height-heading: 1.2;
+  --line-height-body: 1.6;
+
+  /* Espaciado */
+  --spacing-unit: 8px;
+  --spacing-sm: calc(var(--spacing-unit) * 1);
+  --spacing-md: calc(var(--spacing-unit) * 2);
+  --spacing-lg: calc(var(--spacing-unit) * 4);
+  --padding-section: calc(var(--spacing-unit) * 10);
+}
+
+/* Google Fonts: Inter y Noto Sans */
+/*
+<link href="https://fonts.googleapis.com/css?family=Inter:400,600,700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700&display=swap" rel="stylesheet">
+*/
+
+html {
+  font-size: var(--font-size-base);
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-body);
+  color: var(--color-text-body);
+  background: #fff;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  line-height: var(--line-height-heading);
+  color: var(--color-secondary-dark);
+  margin-top: 0;
+}
+
+p, ul, li {
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-body);
+}
+
+/* Utilidades */
+.highlight {
+  color: var(--color-tertiary-medium);
+}
+
+.section-title {
+  font-size: var(--font-size-h2);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Espaciado global para secciones */
+section {
+  padding: var(--padding-section) 0;
+}
+
+/* Personaliza más estilos base aquí */
+
+/* Depuración - fondo rojo para la sección de carousel */
+#servicios-carousel {
+  background-color: #fff;
+}
+
+ 
